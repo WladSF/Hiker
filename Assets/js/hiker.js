@@ -6,7 +6,7 @@ function callGeo(place) {
         type: "json"
     }).then(function (response) {
         console.log(response)
-        console.log(response.results[0].geometry.location.lat)
+        console.log(response.results[0].geometry.location)
         console.log(response.results[0].geometry.location.lng)
         var latGeo = response.results[0].geometry.location.lat
         var longGeo = response.results[0].geometry.location.lng
