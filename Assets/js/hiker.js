@@ -6,8 +6,8 @@ function callGeo(place) {
         type: "json"
     }).then(function (response) {
         console.log(response)
-        // console.log(response.results[0].geometry.location)
-        // console.log(response.results[0].geometry.location.lng)
+        console.log(response.results[0].geometry.location.lat)
+        console.log(response.results[0].geometry.location.lng)
         var latGeo = response.results[0].geometry.location.lat
         var longGeo = response.results[0].geometry.location.lng
         callHiking(latGeo, longGeo)
@@ -209,20 +209,19 @@ function initialize() {
         types: ['geocode']
     };
     var autocomplete = new google.maps.places.Autocomplete(input, options);
-
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
 $("#searchTextField").keyup(function(event) {
     if (event.keyCode === 13) {
-        consoleMe();
+        loadDoc();
     }
 });  
 
 
-function consoleMe() {
-    var inputer = $(input).val().split(" ");
+function loadDoc() {
+    var inputer = $(input).val().split(" ");   //Dinamically create an input field, retrieve the value of the input, splite the string between each character and save it in inputer variable 
     var secondLast = inputer.indexOf(inputer[inputer.length - 2])
     var last = inputer.indexOf(inputer[inputer.length - 1])
     inputer.splice(last, last)
@@ -232,4 +231,5 @@ function consoleMe() {
     console.log(inputer)
     callGeo(inputer)
     $('#weather').removeClass('invisible');
-}
+};
+
