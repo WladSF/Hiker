@@ -117,7 +117,7 @@ var days = 7;
 
 function callWeather(latitude, longitude) {
     $.ajax({ //api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10
-        url: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latitude + "&lon=" + longitude + "&units=imperial&cnt=" + days + "&appid=2f8d81e8a15508386c17efed1108ee40",
+        url: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latitude + "&lon=" + longitude + "&units=imperial&cnt=" + days + "&appid=166a433c57516f51dfab1f7edaed8413",
         method: "GET",
         type: "json"
 
