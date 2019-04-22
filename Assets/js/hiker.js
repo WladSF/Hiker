@@ -1,7 +1,14 @@
+
+
+var rei = config.rei;
+var googleApiKey = config.google;
+var weather = config.weather;
+
+
 function callGeo(place) {
     $.ajax({
 
-        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=AIzaSyCibUjtESS_Cpm40U9XLWdbmr11CPnWy8g',
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=' + googleApiKey,
         method: "GET",
         type: "json"
     }).then(function (response) {
@@ -17,7 +24,7 @@ function callGeo(place) {
 function callHiking(latGeo, longGeo) {
     $.ajax({
         // url: 'https://data.sfgov.org/api/views/u2ac-gv9v/rows.xml',
-        url: 'https://www.hikingproject.com/data/get-trails?lat=' + latGeo + '&' + 'lon=' + longGeo + '&maxDistance=10&key=200381349-b66dbdd97d00ee3c460e33b5beb94b9f',
+        url: 'https://www.hikingproject.com/data/get-trails?lat=' + latGeo + '&' + 'lon=' + longGeo + '&maxDistance=10&key=' + rei,
         method: "GET",
         type: "json"
     }).then(function (response) {
@@ -213,4 +220,5 @@ function loadDoc() {
     callGeo(inputer)
     $('#weather').removeClass('invisible');
 };
+
 
